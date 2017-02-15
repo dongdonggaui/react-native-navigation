@@ -1,8 +1,10 @@
 #import "RCCTabBarController.h"
 #import "RCCViewController.h"
-#import "RCTConvert.h"
+#import <React/RCTConvert.h>
 #import "RCCManager.h"
-#import "RCTUIManager.h"
+#import <React/RCTUIManager.h>
+
+static NSString *const kPropsKeyItemImageAllwaysRenderOriginal = @"itemImageAllwaysRenderOriginal";
 
 @interface RCTUIManager ()
 
@@ -52,6 +54,7 @@
   
   UIColor *buttonColor = nil;
   UIColor *selectedButtonColor = nil;
+  BOOL allwaysRenderOriginal = YES;
   NSDictionary *tabsStyle = props[@"style"];
   if (tabsStyle)
   {
@@ -62,6 +65,11 @@
       self.tabBar.tintColor = color;
       buttonColor = color;
       selectedButtonColor = color;
+    }
+    
+    NSNumber *itemRenderMode = tabsStyle[kPropsKeyItemImageAllwaysRenderOriginal];
+    if ([itemRenderMode isKindOfClass:[NSNumber class]]) {
+      allwaysRenderOriginal = itemRenderMode.boolValue;
     }
     
     NSString *tabBarSelectedButtonColor = tabsStyle[@"tabBarSelectedButtonColor"];
@@ -104,14 +112,28 @@
     if (icon)
     {
       iconImage = [RCTConvert UIImage:icon];
-      if (buttonColor)
+      if (allwaysRenderOriginal)
+      {
+        iconImage = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+      }
+      else if (buttonColor)
       {
         iconImage = [[self image:iconImage withColor:buttonColor] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
       }
     }
     UIImage *iconImageSelected = nil;
     id selectedIcon = tabItemLayout[@"props"][@"selectedIcon"];
-    if (selectedIcon) iconImageSelected = [RCTConvert UIImage:selectedIcon];
+    if (selectedIcon)
+    {
+      iconImageSelected = [RCTConvert UIImage:selectedIcon];
+      if (allwaysRenderOriginal) {
+        iconImageSelected = [iconImageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+      }
+      else if (selectedButtonColor)
+      {
+        iconImageSelected = [[self image:iconImageSelected withColor:selectedButtonColor] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+      }
+    }
 
     viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:iconImage tag:0];
     viewController.tabBarItem.accessibilityIdentifier = tabItemLayout[@"props"][@"testID"];

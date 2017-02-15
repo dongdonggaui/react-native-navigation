@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		260804DB1CE0D9D20094DBA1 /* RCCToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 260804DA1CE0D9D20094DBA1 /* RCCToolBar.m */; };
 		26AFF3F51D7EEE2400CBA211 /* RCCTitleViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AFF3F41D7EEE2400CBA211 /* RCCTitleViewHelper.m */; };
+		80E5FCB31E543DE500E340D5 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E5FCB21E543DE500E340D5 /* libReact.a */; };
 		CC84A19E1C1A0C4E00B3A6A2 /* RCCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC84A1941C1A0C4E00B3A6A2 /* RCCManager.m */; };
 		CC84A19F1C1A0C4E00B3A6A2 /* RCCManagerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CC84A1961C1A0C4E00B3A6A2 /* RCCManagerModule.m */; };
 		CC84A1A01C1A0C4E00B3A6A2 /* RCCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC84A1981C1A0C4E00B3A6A2 /* RCCNavigationController.m */; };
@@ -52,6 +53,7 @@
 		260804DA1CE0D9D20094DBA1 /* RCCToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCToolBar.m; sourceTree = "<group>"; };
 		26AFF3F31D7EEE2400CBA211 /* RCCTitleViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCTitleViewHelper.h; sourceTree = "<group>"; };
 		26AFF3F41D7EEE2400CBA211 /* RCCTitleViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCTitleViewHelper.m; sourceTree = "<group>"; };
+		80E5FCB21E543DE500E340D5 /* libReact.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libReact.a; path = "../../../../../../../Library/Developer/Xcode/DerivedData/ReactNativeDouyu-cxzxfzxqnqstgyapkghdmcrxnsli/Build/Products/Debug-iphonesimulator/libReact.a"; sourceTree = "<group>"; };
 		CC84A1931C1A0C4E00B3A6A2 /* RCCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCManager.h; sourceTree = "<group>"; };
 		CC84A1941C1A0C4E00B3A6A2 /* RCCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = RCCManager.m; sourceTree = "<group>"; tabWidth = 2; };
 		CC84A1951C1A0C4E00B3A6A2 /* RCCManagerModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCManagerModule.h; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80E5FCB31E543DE500E340D5 /* libReact.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +127,14 @@
 				260804DA1CE0D9D20094DBA1 /* RCCToolBar.m */,
 			);
 			path = RCCToolBar;
+			sourceTree = "<group>";
+		};
+		80E5FCB11E543DE500E340D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80E5FCB21E543DE500E340D5 /* libReact.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D85082BB1CBCF42400FDB961 /* RCCDrawerController */ = {
@@ -213,6 +224,7 @@
 				D83514F41D29719A00D53758 /* RCCNotification.h */,
 				D83514F51D29719A00D53758 /* RCCNotification.m */,
 				D8AFADBE1BEE6F3F00A4592D /* Products */,
+				80E5FCB11E543DE500E340D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -261,7 +273,7 @@
 		D8AFADB51BEE6F3F00A4592D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = artal;
 				TargetAttributes = {
 					D8AFADBC1BEE6F3F00A4592D = {
@@ -336,8 +348,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -383,8 +397,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -414,6 +430,7 @@
 		D8AFADC71BEE6F3F00A4592D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../react-native/React/**",
