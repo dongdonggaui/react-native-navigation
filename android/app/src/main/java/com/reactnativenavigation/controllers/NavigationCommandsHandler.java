@@ -9,6 +9,7 @@ import com.reactnativenavigation.params.ActivityParams;
 import com.reactnativenavigation.params.ContextualMenuParams;
 import com.reactnativenavigation.params.FabParams;
 import com.reactnativenavigation.params.ScreenParams;
+import com.reactnativenavigation.params.SlidingOverlayParams;
 import com.reactnativenavigation.params.SnackbarParams;
 import com.reactnativenavigation.params.TitleBarButtonParams;
 import com.reactnativenavigation.params.TitleBarLeftButtonParams;
@@ -336,6 +337,34 @@ public class NavigationCommandsHandler {
         });
     }
 
+    public static void showSlidingOverlay(final SlidingOverlayParams params) {
+        final NavigationActivity currentActivity = NavigationActivity.currentActivity;
+        if (currentActivity == null) {
+            return;
+        }
+
+        NavigationApplication.instance.runOnMainThread(new Runnable() {
+            @Override
+            public void run() {
+                currentActivity.showSlidingOverlay(params);
+            }
+        });
+    }
+
+    public static void hideSlidingOverlay() {
+        final NavigationActivity currentActivity = NavigationActivity.currentActivity;
+        if (currentActivity == null) {
+            return;
+        }
+
+        NavigationApplication.instance.runOnMainThread(new Runnable() {
+            @Override
+            public void run() {
+                currentActivity.hideSlidingOverlay();
+            }
+        });
+    }
+
     public static void showSnackbar(final SnackbarParams params) {
         final NavigationActivity currentActivity = NavigationActivity.currentActivity;
         if (currentActivity == null) {
@@ -374,6 +403,20 @@ public class NavigationCommandsHandler {
             @Override
             public void run() {
                 currentActivity.dismissContextualMenu(screenInstanceId);
+            }
+        });
+    }
+
+    public static void dismissSnackbar() {
+        final NavigationActivity currentActivity = NavigationActivity.currentActivity;
+        if (currentActivity == null) {
+            return;
+        }
+
+        NavigationApplication.instance.runOnMainThread(new Runnable() {
+            @Override
+            public void run() {
+                currentActivity.dismissSnackbar();
             }
         });
     }
